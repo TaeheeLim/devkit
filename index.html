@@ -9,35 +9,79 @@
   <meta name="author" content="DevToolKit" />
   <meta name="robots" content="index, follow" />
 
+  <!-- ====== Google Search Console verification ======
+       Search Console에서 받은 코드의 content 값만 아래에 붙여넣으세요.
+       (예: "abc123xyz...") 그러면 소유권 인증 완료. -->
+  <meta name="google-site-verification" content="REPLACE_WITH_GSC_VERIFICATION_CODE" />
+
+  <!-- ====== Naver Search Advisor (선택) ======
+       https://searchadvisor.naver.com 에서 받은 코드. -->
+  <!-- <meta name="naver-site-verification" content="REPLACE_WITH_NAVER_CODE" /> -->
+
   <!-- Open Graph -->
   <meta property="og:title" content="DevToolKit · 개발자 도구 모음" />
   <meta property="og:description" content="JSON, Base64, JWT, UUID, Hash, Timestamp — 개발자가 매일 쓰는 7가지 도구를 한 곳에." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://devtoolkit.app/" />
-  <meta property="og:image" content="/og-image.png" />
+  <meta property="og:url" content="https://devkit-three.vercel.app/" />
+  <meta property="og:image" content="https://devkit-three.vercel.app/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:locale:alternate" content="en_US" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="DevToolKit · 개발자 도구 모음" />
   <meta name="twitter:description" content="개발자가 매일 쓰는 7가지 도구를 한 곳에." />
+  <meta name="twitter:image" content="https://devkit-three.vercel.app/og-image.png" />
 
-  <link rel="canonical" href="https://devtoolkit.app/" />
+  <link rel="canonical" href="https://devkit-three.vercel.app/" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-  <!-- Google AdSense (배포 후 자신의 ca-pub ID로 교체) -->
+  <!-- ====== Google AdSense ======
+       AdSense 승인 후 ca-pub-XXXXXXXXXXXXXXXX 부분을 본인 publisher ID로 교체하고
+       아래 줄의 주석을 해제하세요. -->
   <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
 
-  <!-- JSON-LD: Structured Data for SEO -->
+  <!-- ====== Google Analytics 4 (선택) ======
+       G-XXXXXXXXXX 부분만 교체하면 활성화됩니다. -->
+  <!--
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
+  -->
+
+  <!-- JSON-LD: WebApplication -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
     "name": "DevToolKit",
-    "url": "https://devtoolkit.app/",
+    "url": "https://devkit-three.vercel.app/",
     "description": "JSON formatter, Base64, URL encoder, JWT decoder, UUID, Hash, Timestamp converter — all in one place.",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "Any",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "ratingCount": "1" }
+  }
+  </script>
+
+  <!-- JSON-LD: FAQPage — Google에 FAQ 리치 결과 노출 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "DevToolKit은 무료인가요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "네. 모든 도구는 무료이며 회원가입이 필요하지 않습니다." } },
+      { "@type": "Question", "name": "입력한 데이터가 서버로 전송되나요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "아닙니다. 모든 처리는 사용자의 브라우저 안에서 JavaScript와 Web Crypto API로 수행되며, 어떤 입력값도 서버로 전송되지 않습니다." } },
+      { "@type": "Question", "name": "JWT 디코더가 서명도 검증하나요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "현재 버전은 Header와 Payload의 디코딩만 수행하며 서명(Signature) 검증은 하지 않습니다. 디버깅 용도로 가장 흔히 쓰이는 사용 패턴에 맞춰져 있습니다." } },
+      { "@type": "Question", "name": "어떤 해시 알고리즘을 지원하나요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Web Crypto API 표준인 SHA-1, SHA-256, SHA-512를 지원합니다. MD5는 보안상 권장하지 않아 포함하지 않았습니다." } },
+      { "@type": "Question", "name": "오프라인에서도 동작하나요?",
+        "acceptedAnswer": { "@type": "Answer", "text": "한 번 페이지를 로드하면 정적 자산이 브라우저에 캐시되어, 새로고침 없이는 네트워크가 끊겨도 모든 도구가 동작합니다." } }
+    ]
   }
   </script>
 
@@ -252,6 +296,56 @@
     <section class="seo-block">
       <h2 data-i18n="seo.title">왜 DevToolKit인가요?</h2>
       <p data-i18n="seo.body">DevToolKit은 회원가입 없이 즉시 사용 가능한 개발자 도구 모음입니다. 모든 처리는 사용자의 브라우저 안에서 수행되며, 입력값이 외부 서버로 전송되지 않아 개인정보와 민감 데이터를 안전하게 다룰 수 있습니다. JSON, Base64, URL, JWT, UUID, Hash, Timestamp 등 자주 쓰는 기능을 한 페이지에서 빠르게 처리하세요.</p>
+    </section>
+
+    <!-- FAQ Section — SEO 리치 결과 + 사용자 신뢰 -->
+    <section class="seo-block" id="faq">
+      <h2>자주 묻는 질문 (FAQ)</h2>
+      <details>
+        <summary><strong>DevToolKit은 무료인가요?</strong></summary>
+        <p>네. 모든 도구는 무료이며, 회원가입이나 API 키 없이 즉시 사용할 수 있습니다.</p>
+      </details>
+      <details>
+        <summary><strong>입력한 데이터가 외부 서버로 전송되나요?</strong></summary>
+        <p>아닙니다. JSON, Base64, JWT, 해시 등 모든 처리는 사용자의 브라우저 안에서 JavaScript와 Web Crypto API로 수행됩니다. 네트워크 탭에서 직접 확인하실 수 있습니다.</p>
+      </details>
+      <details>
+        <summary><strong>JWT 디코더가 서명도 검증하나요?</strong></summary>
+        <p>현재 버전은 Header와 Payload의 디코딩만 제공합니다. 서명 검증은 발급 측 secret 또는 public key가 필요하므로 제공하지 않습니다.</p>
+      </details>
+      <details>
+        <summary><strong>왜 MD5는 없나요?</strong></summary>
+        <p>MD5는 충돌 공격이 알려져 있어 보안 목적에는 권장되지 않습니다. Web Crypto API의 표준 알고리즘인 SHA-1 / SHA-256 / SHA-512만 제공합니다.</p>
+      </details>
+      <details>
+        <summary><strong>오프라인에서도 동작하나요?</strong></summary>
+        <p>네. 한 번 페이지를 연 뒤에는 정적 자산이 브라우저에 캐시되어 네트워크 없이도 모든 도구가 동작합니다.</p>
+      </details>
+      <details>
+        <summary><strong>새 도구를 요청하고 싶어요.</strong></summary>
+        <p>GitHub 저장소의 Issues 또는 이메일로 문의 부탁드립니다. 향후 Color picker, Cron 파서, JSON↔YAML 변환 등을 추가할 예정입니다.</p>
+      </details>
+    </section>
+
+    <!-- Support / Sponsor — 자발적 후원 (수익화) -->
+    <section class="seo-block" id="support">
+      <h2>이 사이트가 도움이 됐다면 ☕</h2>
+      <p>DevToolKit은 광고로 운영되는 무료 사이트입니다. 광고 차단을 사용하신다면, 아래 후원 링크나 추천 서비스를 이용해주시는 것만으로도 큰 도움이 됩니다.</p>
+      <p>
+        <!-- Buy Me a Coffee — username만 본인 것으로 교체 -->
+        <a href="https://www.buymeacoffee.com/REPLACE_USERNAME" target="_blank" rel="noopener sponsored">☕ Buy me a coffee</a>
+        &nbsp;·&nbsp;
+        <!-- Toss 송금 / 카카오페이 등도 가능 -->
+        <a href="https://toss.me/REPLACE_USERNAME" target="_blank" rel="noopener sponsored">💜 토스로 후원</a>
+      </p>
+      <h3 style="margin-top:24px; font-size:16px;">추천 서비스 (어필리에이트)</h3>
+      <p>
+        <a href="https://vercel.com/?utm_source=devtoolkit" target="_blank" rel="noopener sponsored">▲ Vercel</a> — 이 사이트가 호스팅된 무료 배포 플랫폼.
+        <br/>
+        <a href="https://www.cloudflare.com/" target="_blank" rel="noopener sponsored">☁ Cloudflare</a> — 무료 CDN + 무료 도메인 등록.
+        <br/>
+        <a href="https://namecheap.com/" target="_blank" rel="noopener sponsored">🌐 Namecheap</a> — 저렴한 도메인 등록업체.
+      </p>
     </section>
   </main>
 

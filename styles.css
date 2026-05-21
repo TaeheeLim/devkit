@@ -156,7 +156,28 @@ a:hover { text-decoration: underline; }
   background: var(--card); border: 1px solid var(--border);
 }
 .seo-block h2 { margin-top: 0; }
+.seo-block h3 { color: var(--text); }
 .seo-block p { color: var(--muted); }
+.seo-block a { color: var(--accent); }
+
+/* FAQ <details> */
+.seo-block details {
+  border-top: 1px solid var(--border);
+  padding: 14px 0;
+}
+.seo-block details:first-of-type { border-top: 1px solid var(--border); margin-top: 12px; }
+.seo-block details summary {
+  cursor: pointer; list-style: none; outline: none;
+  display: flex; justify-content: space-between; align-items: center;
+  color: var(--text);
+}
+.seo-block details summary::-webkit-details-marker { display: none; }
+.seo-block details summary::after {
+  content: "+"; color: var(--muted); font-size: 18px; font-weight: 400;
+  transition: transform .15s ease;
+}
+.seo-block details[open] summary::after { content: "−"; }
+.seo-block details p { margin: 10px 0 0; color: var(--muted); font-size: 14px; }
 
 /* Footer */
 .footer {
