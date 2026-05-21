@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevToolKit · 개발자 도구 모음 (JSON, Base64, JWT, UUID, Hash)</title>
+  <meta name="description" content="개발자가 매일 쓰는 7가지 도구를 한 곳에. JSON 포매터, Base64 인코더, URL 인코더, JWT 디코더, UUID 생성기, 해시 생성기, Unix 타임스탬프 변환기. 무료, 회원가입 없음, 100% 브라우저에서 동작." />
+  <meta name="keywords" content="JSON formatter, Base64 encode, URL encode, JWT decoder, UUID generator, hash generator, MD5, SHA256, Unix timestamp, 개발자 도구, 온라인 툴" />
+  <meta name="author" content="DevToolKit" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="DevToolKit · 개발자 도구 모음" />
+  <meta property="og:description" content="JSON, Base64, JWT, UUID, Hash, Timestamp — 개발자가 매일 쓰는 7가지 도구를 한 곳에." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://devtoolkit.app/" />
+  <meta property="og:image" content="/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DevToolKit · 개발자 도구 모음" />
+  <meta name="twitter:description" content="개발자가 매일 쓰는 7가지 도구를 한 곳에." />
+
+  <link rel="canonical" href="https://devtoolkit.app/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Google AdSense (배포 후 자신의 ca-pub ID로 교체) -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+
+  <!-- JSON-LD: Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "DevToolKit",
+    "url": "https://devtoolkit.app/",
+    "description": "JSON formatter, Base64, URL encoder, JWT decoder, UUID, Hash, Timestamp converter — all in one place.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+  }
+  </script>
+
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="/" class="brand" aria-label="DevToolKit home">
+        <span class="brand-mark">{ }</span>
+        <span class="brand-name">DevToolKit</span>
+      </a>
+      <nav class="topnav" aria-label="primary">
+        <a href="#tool-json">JSON</a>
+        <a href="#tool-base64">Base64</a>
+        <a href="#tool-url">URL</a>
+        <a href="#tool-jwt">JWT</a>
+        <a href="#tool-uuid">UUID</a>
+        <a href="#tool-hash">Hash</a>
+        <a href="#tool-time">Timestamp</a>
+      </nav>
+      <button id="lang-toggle" class="lang-btn" aria-label="Toggle language">EN</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1 data-i18n="hero.title">개발자가 매일 쓰는 7가지 도구</h1>
+      <p data-i18n="hero.subtitle">JSON · Base64 · URL · JWT · UUID · Hash · Timestamp. 모두 브라우저에서, 가입 없이, 무료로.</p>
+    </section>
+
+    <!-- AdSense Slot (Top) -->
+    <aside class="ad-slot" aria-label="advertisement">
+      <!-- Replace with your AdSense unit after approval -->
+      <div class="ad-placeholder">광고 자리 (AdSense Top Banner)</div>
+    </aside>
+
+    <!-- 1. JSON Formatter -->
+    <section id="tool-json" class="tool-card">
+      <header class="tool-head">
+        <h2><span class="num">01</span> <span data-i18n="json.title">JSON 포매터 / 검증</span></h2>
+        <p data-i18n="json.desc">JSON을 보기 좋게 정렬하거나 한 줄로 압축하고, 유효성을 검사합니다.</p>
+      </header>
+      <div class="tool-body grid-2">
+        <div>
+          <label data-i18n="common.input">입력</label>
+          <textarea id="json-input" rows="10" placeholder='{"name":"DevToolKit","awesome":true}'></textarea>
+          <div class="btn-row">
+            <button data-act="json-pretty" data-i18n="json.pretty">정렬 (2 spaces)</button>
+            <button data-act="json-minify" data-i18n="json.minify">압축</button>
+            <button data-act="json-validate" data-i18n="json.validate">검증만</button>
+            <button class="ghost" data-act="copy" data-target="json-output" data-i18n="common.copy">복사</button>
+          </div>
+        </div>
+        <div>
+          <label data-i18n="common.output">결과</label>
+          <textarea id="json-output" rows="10" readonly></textarea>
+          <div id="json-status" class="status"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Base64 -->
+    <section id="tool-base64" class="tool-card">
+      <header class="tool-head">
+        <h2><span class="num">02</span> <span data-i18n="b64.title">Base64 인코드 / 디코드</span></h2>
+        <p data-i18n="b64.desc">텍스트를 Base64로 인코딩하거나 디코딩합니다. UTF-8 안전.</p>
+      </header>
+      <div class="tool-body grid-2">
+        <div>
+          <label data-i18n="common.input">입력</label>
+          <textarea id="b64-input" rows="6" placeholder="Hello, 안녕하세요"></textarea>
+          <div class="btn-row">
+            <button data-act="b64-encode" data-i18n="b64.encode">인코드</button>
+            <button data-act="b64-decode" data-i18n="b64.decode">디코드</button>
+            <button class="ghost" data-act="copy" data-target="b64-output" data-i18n="common.copy">복사</button>
+          </div>
+        </div>
+        <div>
+          <label data-i18n="common.output">결과</label>
+          <textarea id="b64-output" rows="6" readonly></textarea>
+          <div id="b64-status" class="status"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. URL Encoder -->
+    <section id="tool-url" class="tool-card">
+      <header class="tool-head">
+        <h2><span class="num">03</span> <span data-i18n="url.title">URL 인코드 / 디코드</span></h2>
+        <p data-i18n="url.desc">쿼리스트링이나 경로 등 URL에 안전하게 사용할 수 있도록 변환합니다.</p>
+      </header>
+      <div class="tool-body grid-2">
+        <div>
+          <label data-i18n="common.input">입력</label>
+          <textarea id="url-input" rows="5" placeholder="https://example.com/?q=한글 검색"></textarea>
+          <div class="btn-row">
+            <button data-act="url-encode" data-i18n="url.encode">인코드</button>
+            <button data-act="url-decode" data-i18n="url.decode">디코드</button>
+            <button class="ghost" data-act="copy" data-target="url-output" data-i18n="common.copy">복사</button>
+          </div>
+        </div>
+        <div>
+          <label data-i18n="common.output">결과</label>
+          <textarea id="url-output" rows="5" readonly></textarea>
+          <div id="url-status" class="status"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AdSense Slot (Middle) -->
+    <aside class="ad-slot" aria-label="advertisement">
+      <div class="ad-placeholder">광고 자리 (AdSense Middle)</div>
+    </aside>
+
+    <!-- 4. JWT Decoder -->
+    <section id="tool-jwt" class="tool-card">
+      <header class="tool-head">
+        <h2><span class="num">04</span> <span data-i18n="jwt.title">JWT 디코더</span></h2>
+        <p data-i18n="jwt.desc">JWT 토큰의 Header / Payload를 디코딩합니다. (서명 검증은 하지 않습니다)</p>
+      </header>
+      <div class="tool-body">
+        <label data-i18n="jwt.token">JWT 토큰</label>
+        <textarea id="jwt-input" rows="4" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."></textarea>
+        <div class="btn-row">
+          <button data-act="jwt-decode" data-i18n="jwt.decode">디코드</button>
+        </div>
+        <div class="grid-2 mt">
+          <div>
+            <label>Header</label>
+            <textarea id="jwt-header" rows="6" readonly></textarea>
+          </div>
+          <div>
+            <label>Payload</label>
+            <textarea id="jwt-payload" rows="6" readonly></textarea>
+          </div>
+        </div>
+        <div id="jwt-status" class="status"></div>
+      </div>
+    </section>
+
+    <!-- 5. UUID Generator -->
+    <section id="tool-uuid" class="tool-card">
+      <header class="tool-head">
+        <h2><span class="num">05</span> <span data-i18n="uuid.title">UUID 생성기 (v4)</span></h2>
+        <p data-i18n="uuid.desc">암호학적으로 안전한 RFC 4122 v4 UUID를 즉시 생성합니다.</p>
+      </header>
+      <div class="tool-body">
+        <div class="btn-row">
+          <label class="inline">
+            <span data-i18n="uuid.count">개수</span>
+            <input id="uuid-count" type="number" min="1" max="100" value="5" />
+          </label>
+          <button data-act="uuid-generate" data-i18n="uuid.generate">생성</button>
+          <button class="ghost" data-act="copy" data-target="uuid-output" data-i18n="common.copy">복사</button>
+        </div>
+        <textarea id="uuid-output" rows="6" readonly></textarea>
+      </div>
+    </section>
+
+    <!-- 6. Hash Generator -->
+    <section id="tool-hash" class="tool-card">
+      <header class="tool-head">
+        <h2><span class="num">06</span> <span data-i18n="hash.title">해시 생성기 (SHA-1 / SHA-256 / SHA-512)</span></h2>
+        <p data-i18n="hash.desc">브라우저의 Web Crypto API로 안전하게 해시를 생성합니다.</p>
+      </header>
+      <div class="tool-body">
+        <label data-i18n="common.input">입력</label>
+        <textarea id="hash-input" rows="4" placeholder="hash me"></textarea>
+        <div class="btn-row">
+          <button data-act="hash" data-algo="SHA-1">SHA-1</button>
+          <button data-act="hash" data-algo="SHA-256">SHA-256</button>
+          <button data-act="hash" data-algo="SHA-512">SHA-512</button>
+          <button class="ghost" data-act="copy" data-target="hash-output" data-i18n="common.copy">복사</button>
+        </div>
+        <label data-i18n="common.output">결과</label>
+        <textarea id="hash-output" rows="3" readonly></textarea>
+      </div>
+    </section>
+
+    <!-- 7. Timestamp -->
+    <section id="tool-time" class="tool-card">
+      <header class="tool-head">
+        <h2><span class="num">07</span> <span data-i18n="time.title">Unix Timestamp 변환기</span></h2>
+        <p data-i18n="time.desc">Unix 타임스탬프 ↔ 사람이 읽는 날짜 형식을 변환합니다.</p>
+      </header>
+      <div class="tool-body grid-2">
+        <div>
+          <label>Unix Timestamp (sec)</label>
+          <input id="time-unix" type="number" placeholder="1716249600" />
+          <div class="btn-row">
+            <button data-act="time-from-unix" data-i18n="time.toDate">→ 날짜</button>
+            <button data-act="time-now" data-i18n="time.now">지금</button>
+          </div>
+        </div>
+        <div>
+          <label>ISO Date</label>
+          <input id="time-iso" type="text" placeholder="2026-05-21T00:00:00Z" />
+          <div class="btn-row">
+            <button data-act="time-from-iso" data-i18n="time.toUnix">→ Unix</button>
+          </div>
+        </div>
+      </div>
+      <div id="time-result" class="status"></div>
+    </section>
+
+    <!-- AdSense Slot (Bottom) -->
+    <aside class="ad-slot" aria-label="advertisement">
+      <div class="ad-placeholder">광고 자리 (AdSense Bottom)</div>
+    </aside>
+
+    <section class="seo-block">
+      <h2 data-i18n="seo.title">왜 DevToolKit인가요?</h2>
+      <p data-i18n="seo.body">DevToolKit은 회원가입 없이 즉시 사용 가능한 개발자 도구 모음입니다. 모든 처리는 사용자의 브라우저 안에서 수행되며, 입력값이 외부 서버로 전송되지 않아 개인정보와 민감 데이터를 안전하게 다룰 수 있습니다. JSON, Base64, URL, JWT, UUID, Hash, Timestamp 등 자주 쓰는 기능을 한 페이지에서 빠르게 처리하세요.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> DevToolKit — <span data-i18n="footer.tag">개발자를 위한 무료 유틸리티</span></p>
+      <p class="small"><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>

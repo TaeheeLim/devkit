@@ -1,0 +1,12 @@
+{
+  "name": "devtoolkit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Free developer utilities — JSON, Base64, URL, JWT, UUID, Hash, Timestamp — all client-side.",
+  "scripts": {
+    "dev": "npx --yes serve@latest . -l 5173",
+    "start": "npx --yes serve@latest . -l 5173"
+  },
+  "keywords": ["json formatter", "base64", "jwt decoder", "uuid", "hash", "developer tools"],
+  "license": "MIT"
+}
