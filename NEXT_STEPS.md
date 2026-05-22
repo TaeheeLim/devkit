@@ -152,15 +152,22 @@ Push → Search Console 에 등록한 도메인이라면 자동 인증 완료.
 **한국에서 실제 출금 가능한** 옵션만 채택했습니다 (Buy Me a Coffee / toss.me 는 한국 사용 불가/종료).
 
 ### 6-1. Ko-fi (한국 출금 가능, 가장 추천)
+> ⚠️ Ko-fi 도 **본인 가입 + 결제 연결 전**에는 `https://ko-fi.com/<username>` 페이지가 존재하지 않습니다. 마찬가지로 코드에서 주석 처리되어 있고, 가입 후에 활성화하세요.
+
 **Stripe Connect 를 통해 한국 계좌로 직접 출금**됩니다. 수수료 0%.
 1. https://ko-fi.com → "Sign up" → username 선택 (예: `taeheelim`)
 2. Settings → **Payments** → Stripe Connect → 한국 은행 계좌 연결 (사업자 등록 불필요, 개인 계좌 OK)
-3. `index.html` 에서 `REPLACE_KOFI_USERNAME` → 본인 username 으로 교체
+3. 본인 페이지 (`https://ko-fi.com/<your-username>`)가 정상 열리는지 확인
+4. `index.html` 후원 섹션의 주석 안쪽 `KOFI_USERNAME` 을 본인 것으로 바꾸고 주석 해제
+5. git push → 자동 재배포
 
 ### 6-2. GitHub Sponsors (개발자 사이트의 정석)
-1. https://github.com/sponsors → "Get sponsored" → 신청서 작성 (약 1주 심사)
-2. 승인 후 Stripe 연결 → 한국 계좌 등록
-3. `index.html` 에서 `REPLACE_GITHUB_USERNAME` → `TaeheeLim` 으로 교체
+> ⚠️ **신청 + 승인 전까지는 `https://github.com/sponsors/<username>` 페이지가 404** 를 반환합니다. 따라서 코드의 GitHub Sponsors 링크는 **승인이 끝난 후에만 활성화**해야 합니다 (현재 `index.html` 에서 주석 처리 상태).
+
+1. https://github.com/sponsors → "Get sponsored" → 본인 GitHub 계정으로 신청 (보통 1~4주 심사)
+2. 승인 메일 도착 → GitHub 설정에서 Stripe 연결 → 한국 계좌 등록
+3. `index.html` 의 후원 섹션 주석을 해제 (`<!--` / `-->` 표시 삭제)
+4. git push → 자동 재배포
 
 > 💡 두 옵션 모두 **사업자 등록 불필요**, **수수료 거의 없음**, **한국 계좌 직접 입금** 가능.
 

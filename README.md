@@ -1,8 +1,15 @@
 # DevToolKit
 
+[![Live](https://img.shields.io/badge/Live-devkit--three.vercel.app-36e2c1?style=flat-square&logo=vercel&logoColor=white)](https://devkit-three.vercel.app/)
+[![GitHub stars](https://img.shields.io/github/stars/TaeheeLim/devkit?style=flat-square&color=6c8cff)](https://github.com/TaeheeLim/devkit/stargazers)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-FF5E5B?style=flat-square&logo=ko-fi&logoColor=white)](https://ko-fi.com/taeheelim)
+
 > 개발자가 매일 쓰는 7가지 도구를 한 페이지에. 회원가입 없음 · 100% 브라우저 동작 · 무료.
 
 JSON Formatter · Base64 · URL Encode · JWT Decoder · UUID v4 · SHA-1/256/512 Hash · Unix Timestamp
+
+**🌐 Live: <https://devkit-three.vercel.app/>**
 
 ---
 
