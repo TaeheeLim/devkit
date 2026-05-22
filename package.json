@@ -7,6 +7,16 @@
     "dev": "npx --yes serve@latest . -l 5173",
     "start": "npx --yes serve@latest . -l 5173"
   },
-  "keywords": ["json formatter", "base64", "jwt decoder", "uuid", "hash", "developer tools"],
-  "license": "MIT"
+  "keywords": [
+    "json formatter",
+    "base64",
+    "jwt decoder",
+    "uuid",
+    "hash",
+    "developer tools"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
 }
