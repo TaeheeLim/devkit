@@ -148,19 +148,35 @@ Push → Search Console 에 등록한 도메인이라면 자동 인증 완료.
 
 ## STEP 6. (선택) 후원 / 어필리에이트 활성화
 
-`index.html` 의 **"☕ Buy me a coffee"** 섹션에 placeholder가 있습니다.
+`index.html` 의 "☕ 이 사이트가 도움이 됐다면" 섹션에 placeholder가 있습니다.
+**한국에서 실제 출금 가능한** 옵션만 채택했습니다 (Buy Me a Coffee / toss.me 는 한국 사용 불가/종료).
 
-### 6-1. Buy Me a Coffee
-1. https://buymeacoffee.com 가입 → username 선택 (예: `taeheelim`)
-2. `index.html` 의 `https://www.buymeacoffee.com/REPLACE_USERNAME` 에서 `REPLACE_USERNAME` 을 본인 username으로 교체
+### 6-1. Ko-fi (한국 출금 가능, 가장 추천)
+**Stripe Connect 를 통해 한국 계좌로 직접 출금**됩니다. 수수료 0%.
+1. https://ko-fi.com → "Sign up" → username 선택 (예: `taeheelim`)
+2. Settings → **Payments** → Stripe Connect → 한국 은행 계좌 연결 (사업자 등록 불필요, 개인 계좌 OK)
+3. `index.html` 에서 `REPLACE_KOFI_USERNAME` → 본인 username 으로 교체
 
-### 6-2. 토스 송금 링크
-1. 토스 앱 → 송금 → 받기 → 내 토스 ID 확인
-2. `https://toss.me/REPLACE_USERNAME` 에서 username 교체
+### 6-2. GitHub Sponsors (개발자 사이트의 정석)
+1. https://github.com/sponsors → "Get sponsored" → 신청서 작성 (약 1주 심사)
+2. 승인 후 Stripe 연결 → 한국 계좌 등록
+3. `index.html` 에서 `REPLACE_GITHUB_USERNAME` → `TaeheeLim` 으로 교체
 
-### 6-3. Vercel 어필리에이트 (가입자당 $20)
+> 💡 두 옵션 모두 **사업자 등록 불필요**, **수수료 거의 없음**, **한국 계좌 직접 입금** 가능.
+
+### 6-3. (대안) 계좌번호 직접 표시
+신뢰 이슈로 권장하지는 않지만 가장 단순한 방법:
+```html
+<p>후원 계좌: 카카오뱅크 3333-XX-XXXXXXX (임태희)</p>
+```
+
+### 6-4. Vercel 어필리에이트 (가입자당 보상)
 1. https://vercel.com/affiliate → 가입
 2. 받은 추천 링크로 `vercel.com/?utm_source=devtoolkit` 부분 교체
+
+### 6-5. (선택) 쿠팡 파트너스 — 한국 사용자 대상이라면 효과적
+1. https://partners.coupang.com → 가입 (한국 신분증 필요)
+2. 개발자 도서, 모니터 등 관련 상품 링크를 footer 의 "추천 서비스" 영역에 추가
 
 ---
 
